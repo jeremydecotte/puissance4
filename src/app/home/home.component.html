@@ -1,0 +1,19 @@
+<span class="h1">Accueil</span>
+
+<div class="container">
+  <div class="row">
+
+{{currentPlayer}}
+
+{{grid[0]|json}}
+
+    <div id="game-grid">
+      <div class="column" *ngFor="let column of grid; let columnIndex = index" (click)="addPills(columnIndex)">
+        <div class="cell" *ngFor="let cell of column; let cellIndex = index">
+              <div class="pill pill-red" *ngIf="cell.value == PillType.RED">Red !</div>
+              <div class="pill pill-yellow" *ngIf="cell.value == PillType.YELLOW">Yellow !</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+$cellHeight : 125px;
+$cellWidth: 125px;
+
+body {
+    background: #2c2d32;
+    color: #777;
+}
+
+#game-grid {
+    margin: auto;
+}
+
+#game-grid > div {
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.column {
+    border: 1px red solid;
+    height: $cellHeight * 7+2;
+    width: $cellWidth;
+}
+
+.column:hover {
+    border: 1px yellow solid;
+}
+
+.cell {
+    border: 1px green solid;
+    width: $cellWidth;
+    height: $cellHeight;
+}
+
+.pill {
+    position: relative;
+    top: 20px;
+    width: 50px;
+    height: 50px;
+    margin: auto;
+}
+
+.pill-yellow {
+    background-color: yellow;
+}
+
+.pill-red {
+    background-color: red;
+}
