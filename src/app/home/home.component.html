@@ -1,17 +1,25 @@
 <span class="h1">Accueil</span>
 
+
+
 <div class="container">
+
+  
   <div class="row">
-
-{{currentPlayer}}
-
-{{grid[0]|json}}
-
-    <div id="game-grid">
-      <div class="column" *ngFor="let column of grid; let columnIndex = index" (click)="addPills(columnIndex)">
+    
+    {{currentPlayer}}
+    
+    <div *ngIf="isWinned" style="position: absolute; background-color: red; top: 20px; left: 50px;">
+      C'est gagné !
+      <button (click)="resetGame()">Recommencer !</button>
+    </div>
+    
+    <div id="game-grid"> 
+      <canvas id="game-canvas" width="1200" height="1200"></canvas>
+      <div class="column" *ngFor="let column of game.Grid; let columnIndex = index" (click)="addToken(columnIndex)">
         <div class="cell" *ngFor="let cell of column; let cellIndex = index">
-              <div class="pill pill-red" *ngIf="cell.value == PillType.RED">Red !</div>
-              <div class="pill pill-yellow" *ngIf="cell.value == PillType.YELLOW">Yellow !</div>
+          <div class="token token-red" *ngIf="cell.value == tokenType.RED">Red !</div>
+          <div class="token token-yellow" *ngIf="cell.value == tokenType.YELLOW">Yellow !</div>
         </div>
       </div>
     </div>

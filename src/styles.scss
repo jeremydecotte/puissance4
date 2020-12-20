@@ -7,12 +7,20 @@ body {
 }
 
 #game-grid {
+    position: relative;
     margin: auto;
 }
 
 #game-grid > div {
     display: inline-block;
     vertical-align: bottom;
+}
+
+#game-grid > canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 50;
 }
 
 .column {
@@ -31,18 +39,41 @@ body {
     height: $cellHeight;
 }
 
-.pill {
+.token {
     position: relative;
+   // display: none;
     top: 20px;
     width: 50px;
     height: 50px;
     margin: auto;
+    animation-duration: 0.8s; 
+    animation-fill-mode: both; 
+    animation-timing-function: ease-in-out; 
+    animation-name: bounceInDown; 
 }
 
-.pill-yellow {
+.token-yellow {
     background-color: yellow;
 }
 
-.pill-red {
+.token-red {
     background-color: red;
 }
+
+@keyframes bounceInDown { 
+    0% { 
+        opacity: 0; 
+        transform: translateY(-2000px); 
+    } 
+    60% { 
+        opacity: 1; 
+        transform: translateY(30px); 
+    } 
+    80% { 
+        transform: translateY(-10px); 
+    } 
+    100% { 
+        transform: translateY(0); 
+    } 
+} 
+
